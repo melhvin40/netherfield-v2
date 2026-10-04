@@ -30,7 +30,11 @@ jobs:
           node-version: 22
       - name: Build pages from data
         run: node tools/build.mjs
+      # enablement: turns GitHub Pages on for this repository on the first run, so the site goes
+      # live without anyone having to set the source by hand (Settings -> Pages).
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
