@@ -68,9 +68,9 @@ export function testimonialsPage(ctx) {
       <span class="dv-t">${esc(p.title)}</span><span class="dv-l">${esc(locationLine(p))} &middot; Delivered</span></a>`; }).join('')}</div>
   </div>
 </section>`,
-    `<section class="sec promise on-navy" aria-labelledby="hPromise">
+    `<section class="sec promise" aria-labelledby="hPromise">
   <div class="wrap promise-grid">
-    <div class="promise-head"><p class="eyebrow on-dark">The Netherfield promise</p><h2 class="h2" id="hPromise">What every client <em>can count on</em></h2></div>
+    <div class="promise-head"><p class="eyebrow">The Netherfield promise</p><h2 class="h2" id="hPromise">What every client <em>can count on</em></h2></div>
     <ol class="promise-list">${PROMISE.map(([ic, t, d], i) => `<li data-reveal><span class="promise-n">0${i + 1}</span>${icon(ic, 28)}<h3>${t}</h3><p>${d}</p></li>`).join('')}</ol>
   </div>
 </section>`,

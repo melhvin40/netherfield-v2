@@ -59,9 +59,9 @@ function benefits() {
 }
 
 function steps() {
-  return `<section class="sec gv-steps on-navy" aria-labelledby="hSteps"><div class="wrap">
+  return `<section class="sec gv-steps" aria-labelledby="hSteps"><div class="wrap">
   <div class="gvs gvs-timeline">
-    <div class="gvs-head"><p class="eyebrow on-dark">Step by step</p><h2 class="h2" id="hSteps">Step-by-step guide to the Golden Visa program and <em>legal services</em></h2><p class="gvs-lede">From business to retirement, your gateway to Europe starts here, with seamless relocation for you and your family.</p></div>
+    <div class="gvs-head"><p class="eyebrow">Step by step</p><h2 class="h2" id="hSteps">Step-by-step guide to the Golden Visa program and <em>legal services</em></h2><p class="gvs-lede">From business to retirement, your gateway to Europe starts here, with seamless relocation for you and your family.</p></div>
     <div class="gvs-line" role="tablist" aria-label="Steps">${STEPS.map((s, i) => `<button class="gvs-dot" type="button" role="tab" aria-selected="${i === 0}" aria-controls="gvsPanel" data-step="${i}"><span class="gvs-dot-n">${String(i + 1).padStart(2, '0')}</span><span class="gvs-dot-t">${s.t}</span></button>`).join('')}<span class="gvs-progress" aria-hidden="true"></span></div>
     <div class="gvs-panel" id="gvsPanel" role="tabpanel" aria-live="polite">${STEPS.map((s, i) => `<div class="gvs-card" data-card="${i}"${i ? ' hidden' : ''}><span class="gvs-card-n">${String(i + 1).padStart(2, '0')}</span><div><p class="gvs-card-time">${s.time}</p><h3>${s.t}</h3><p>${s.d}</p></div></div>`).join('')}</div>
   </div>

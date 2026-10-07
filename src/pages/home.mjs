@@ -12,7 +12,7 @@ function hero() {
   </div>
   <div class="hh-shade"></div>
   <div class="wrap hh-inner">
-    <p class="eyebrow on-dark">Greece &middot; Golden Visa &middot; Real Estate</p>
+    <p class="eyebrow">Greece &middot; Golden Visa &middot; Real Estate</p>
     <h1 class="hh-title">Your Gateway to <em>Europe</em> Starts Here</h1>
     <p class="hh-lede">Golden Visa opportunities, a family-friendly lifestyle and business freedom across Europe. At Netherfield, quality always comes first.</p>
     <div class="hh-ctas">
@@ -109,7 +109,7 @@ function estate(ctx) {
   return `<section class="es" id="estateLine">
   <div class="es-field" aria-hidden="true"><div class="es-field-lit"></div></div>
   <div class="wrap"><div class="es-head">
-    <p class="eyebrow on-dark">Featured listings</p>
+    <p class="eyebrow">Featured listings</p>
     <h2 class="h2">Ready to make <em>Greece home?</em></h2>
     <p>${feat.length} residences, each one worth a closer look. Follow the thread.</p>
   </div></div>
@@ -119,7 +119,7 @@ function estate(ctx) {
     </div>
     <div class="es-cards">${cards}</div>
   </div>
-  <div class="wrap es-foot"><a class="link-arrow on-dark" href="properties.html">View all properties ${icon('arrow-right', 16)}</a></div>
+  <div class="wrap es-foot"><a class="link-arrow" href="properties.html">View all properties ${icon('arrow-right', 16)}</a></div>
 </section>`;
 }
 

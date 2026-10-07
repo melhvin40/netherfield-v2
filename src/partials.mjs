@@ -156,7 +156,7 @@ export function filmHero(cfg) {
     <div class="ph-shade"></div>
     <div class="wrap ph-inner">
       <div class="ph-text">
-        <p class="eyebrow on-dark">${esc(cfg.eyebrow)}</p>
+        <p class="eyebrow">${esc(cfg.eyebrow)}</p>
         <h1 class="ph-title">${cfg.title}</h1>
         ${cfg.lede ? `<p class="ph-lede">${esc(cfg.lede)}</p>` : ''}
         ${cfg.actions || ''}

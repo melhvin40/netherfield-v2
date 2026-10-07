@@ -40,7 +40,7 @@ python3 -m http.server      # then open http://localhost:8000
 | `data/faq.json`, `data/testimonials.json` | Golden Visa FAQ; client stories (only stories with `consent: true` are published) |
 | `src/pages/*.mjs`, `src/partials.mjs` | Page templates and the shared shell |
 | `src/media.mjs` | Every film and decorative image, in one place |
-| `src/palettes.mjs` | The colour palettes: three colours each, every other shade derived at build time |
+| `src/palettes.mjs` | The colour schemes: three colours and a surface plan each, every other shade derived at build time |
 | `src/lib/*.mjs`, `src/templates/*.mjs` | Search engine, formatting and cards, shared by the build and the browser |
 | `src/css/*.css` | Styles, concatenated into `assets/css/site.css` (generated, do not edit) |
 | `assets/js/*.js` | Browser behaviour (search, gallery, maps, Golden Visa panels, admin) |
@@ -74,20 +74,26 @@ Open `admin.html` (also linked as "Agency login" in the footer).
 
 ## Colours
 
-Each palette is exactly three colours: a light one for the page, a dark one for text, the header and
-the dark bands, and an accent for buttons and fine details. Every other shade (hover, muted text,
-rules, cards, overlays, the favicon) is derived from those three when the site is built, so no fourth
-colour can creep in; small text keeps WCAG AA contrast on every surface.
+Each colour scheme is three colours and a plan for where they go: a light colour for the page, a dark
+colour for text and the dark surfaces, and an accent. The plan decides, per surface (header and mobile
+menu; the bands: featured listings, Golden Visa steps, the promise; the footer; the location tiles on
+property pages), whether it is light, a tint of the light colour, or dark, and whether the accent is
+used fully (buttons, italic words, labels, fine lines) or quietly (labels and fine lines only). Every
+other shade (hover, muted text, rules, the favicon) is derived from the three colours when the site
+is built, so no fourth colour can creep in; small text keeps WCAG AA contrast on every surface.
 
-| Palette | Light | Dark | Accent |
-|---|---|---|---|
-| `ivory` Ivory & Ink (default) | `#F2EEE6` | `#1A1917` | `#A88A5C` |
-| `midnight` Midnight & Champagne | `#F4F1EA` | `#131B2B` | `#BCA37A` |
-| `olive` Limestone & Olive | `#EDE9E0` | `#24261F` | `#9E9467` |
+Films and photos are never tinted: the shades, captions and controls laid over them are neutral black
+and white in every scheme, so a scheme changes the page around the pictures, never the pictures.
 
-While more than one palette is listed in `src/palettes.mjs`, every page shows a small switcher in the
-bottom-left corner to compare them, and `?palette=<id>` opens a page in a given palette. Leave a single
-palette in the list to remove the switcher.
+| Scheme | Light | Dark | Accent | Plan |
+|---|---|---|---|---|
+| `ivory` Ivory & Black (default) | `#F5F2ED` | `#171615` | `#8C8279` | Light header, stone bands, black footer; quiet accent, black buttons |
+| `midnight` Midnight & Champagne | `#F5F2EC` | `#121A29` | `#C2AB82` | Midnight header, bands and footer; champagne buttons and details |
+| `sand` Sand & Espresso | `#F3EDE4` | `#2B231E` | `#B08A5E` | Espresso header and footer, sand bands; bronze buttons and details |
+
+While more than one scheme is listed in `src/palettes.mjs`, every page shows a small switcher in the
+bottom-left corner to compare them, and `?palette=<id>` opens a page in a given scheme. Leave a single
+scheme in the list to remove the switcher.
 
 ## Films and imagery
 
