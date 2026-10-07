@@ -69,7 +69,7 @@
 .promise-n{display:block; font:italic 320 .95rem var(--serif); color:var(--gold-300)}
 .promise-list .i{width:28px; height:28px; margin:1.4rem 0 1rem; color:var(--gold-300)}
 .promise-list h3{font-size:1.45rem; font-weight:340; color:var(--paper)}
-.promise-list p{margin-top:.7rem; color:rgba(247,243,234,.72); font-size:.96rem}
+.promise-list p{margin-top:.7rem; color:rgb(var(--paper-rgb) / .72); font-size:.96rem}
 
 /* contact */
 .ct-hero{padding-bottom:0}

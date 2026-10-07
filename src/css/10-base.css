@@ -1,18 +1,15 @@
 /* ==========================================================================
    Netherfield: tokens and base
-   Quiet luxury: paper and ink, fine rules, one restrained gold.
-   Small gold text uses --gold-ink (5:1 on paper); --gold is for accents only.
+   Quiet luxury: three colours, fine rules. The colours (light, dark, accent) and every shade derived
+   from them come from src/palettes.mjs; this file only uses them.
+   Small accent text uses --gold-ink (AA on every light surface); --gold is for accents only.
    ========================================================================== */
 :root{
-  --navy-950:#0B1530; --navy-900:#101C3B; --navy-850:#14224A; --navy-800:#1A2A55; --navy-700:#2A3B68;
-  --gold:#C7A253; --gold-hi:#D6B66E; --gold-300:#E3C87E; --gold-ink:#826428; --gold-wash:#F1E6C9;
-  --paper:#F7F3EA; --paper-2:#F1EBDD; --paper-3:#E9E1CF; --white:#FFFDF8;
-  --ink:#1A1D25; --ink-2:#464B58; --ink-3:#676B78;
-  --sea:#2D5A60; --sea-wash:#E2ECEA; --clay:#8E5139; --clay-wash:#F0E2DA;
-  --line:rgba(11,21,48,.12); --line-2:rgba(11,21,48,.22); --line-dark:rgba(247,243,234,.16); --line-dark-2:rgba(247,243,234,.3);
+  --error:#8A3A2C; --error-rgb:138 58 44;
+  --line:rgb(var(--dark-rgb) / .12); --line-2:rgb(var(--dark-rgb) / .22); --line-dark:rgb(var(--paper-rgb) / .16); --line-dark-2:rgb(var(--paper-rgb) / .3);
   --r1:2px; --r2:4px; --r3:8px;
-  --sh-1:0 1px 2px rgba(11,21,48,.05), 0 10px 30px -18px rgba(11,21,48,.28);
-  --sh-2:0 40px 80px -40px rgba(11,21,48,.45);
+  --sh-1:0 1px 2px rgb(var(--dark-rgb) / .05), 0 10px 30px -18px rgb(var(--dark-rgb) / .28);
+  --sh-2:0 40px 80px -40px rgb(var(--dark-rgb) / .45);
   --serif:'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
   --sans:'Albert Sans', -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   --ease:cubic-bezier(.2,.7,.2,1);

@@ -1,0 +1,16 @@
+/* ==========================================================================
+   Colour proposals: a small bar in the corner to compare the palettes.
+   Only rendered while src/palettes.mjs lists more than one palette.
+   ========================================================================== */
+.pal{position:fixed; left:16px; bottom:16px; z-index:60; display:flex; align-items:center; gap:4px; padding:5px 12px 5px 5px; border-radius:999px; background:var(--navy-950); box-shadow:0 10px 30px -12px rgb(var(--dark-rgb) / .6), 0 0 0 1px rgb(var(--paper-rgb) / .14); color:var(--paper)}
+.pal-b{display:inline-flex; align-items:center; gap:6px; height:34px; padding:0 9px 0 5px; border:0; border-radius:999px; background:transparent; color:rgb(var(--paper-rgb) / .72); font:600 .7rem/1 var(--sans); letter-spacing:.12em}
+.pal-b:hover{color:var(--paper); background:rgb(var(--paper-rgb) / .08)}
+.pal-b[aria-pressed="true"]{color:var(--navy-950); background:var(--paper)}
+.pal-sw{width:24px; height:24px; border-radius:50%; background:conic-gradient(var(--p1) 0 50%, var(--p2) 0 83%, var(--p3) 0); box-shadow:0 0 0 1px rgb(var(--paper-rgb) / .3)}
+.pal-name{margin-left:6px; font:italic 340 .9rem/1 var(--serif); white-space:nowrap}
+@media (max-width:640px){
+  .pal{left:10px; bottom:10px; padding-right:5px}
+  .pal-name{display:none}
+  .pal-b{padding:0 7px 0 4px}
+}
+@media print{ .pal{display:none} }

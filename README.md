@@ -40,6 +40,7 @@ python3 -m http.server      # then open http://localhost:8000
 | `data/faq.json`, `data/testimonials.json` | Golden Visa FAQ; client stories (only stories with `consent: true` are published) |
 | `src/pages/*.mjs`, `src/partials.mjs` | Page templates and the shared shell |
 | `src/media.mjs` | Every film and decorative image, in one place |
+| `src/palettes.mjs` | The colour palettes: three colours each, every other shade derived at build time |
 | `src/lib/*.mjs`, `src/templates/*.mjs` | Search engine, formatting and cards, shared by the build and the browser |
 | `src/css/*.css` | Styles, concatenated into `assets/css/site.css` (generated, do not edit) |
 | `assets/js/*.js` | Browser behaviour (search, gallery, maps, Golden Visa panels, admin) |
@@ -70,6 +71,23 @@ Open `admin.html` (also linked as "Agency login" in the footer).
   Google Maps key, search engine indexing).
 - **Publish** saves everything as one commit; the site rebuilds within a minute or two.
   Without a token, *Work offline* exports the changes as a ZIP with instructions.
+
+## Colours
+
+Each palette is exactly three colours: a light one for the page, a dark one for text, the header and
+the dark bands, and an accent for buttons and fine details. Every other shade (hover, muted text,
+rules, cards, overlays, the favicon) is derived from those three when the site is built, so no fourth
+colour can creep in; small text keeps WCAG AA contrast on every surface.
+
+| Palette | Light | Dark | Accent |
+|---|---|---|---|
+| `ivory` Ivory & Ink (default) | `#F2EEE6` | `#1A1917` | `#A88A5C` |
+| `midnight` Midnight & Champagne | `#F4F1EA` | `#131B2B` | `#BCA37A` |
+| `olive` Limestone & Olive | `#EDE9E0` | `#24261F` | `#9E9467` |
+
+While more than one palette is listed in `src/palettes.mjs`, every page shows a small switcher in the
+bottom-left corner to compare them, and `?palette=<id>` opens a page in a given palette. Leave a single
+palette in the list to remove the switcher.
 
 ## Films and imagery
 

@@ -170,7 +170,7 @@ function agent(p, site) {
   return `<aside class="pd-aside" aria-label="Contact the agent">
   <div class="pd-agent" id="enquire">
     <div class="pd-agent-top">
-      <span class="pd-agent-logo" aria-hidden="true"><svg viewBox="0 0 64 64" width="30" height="30"><path d="M19 46V18h3.2l17.6 21.6V18H45v28h-3.2L24.2 24.4V46z" fill="#E3C87E"/></svg></span>
+      <span class="pd-agent-logo" aria-hidden="true"><svg viewBox="0 0 64 64" width="30" height="30"><path d="M19 46V18h3.2l17.6 21.6V18H45v28h-3.2L24.2 24.4V46z" fill="currentColor"/></svg></span>
       <div><p class="pd-agent-name">${esc(site.name)}</p><p class="pd-agent-sub">Golden Visa property advisors &middot; ${esc(site.address.city)}</p></div>
     </div>
     <p class="pd-agent-price"${!isSold(p) && p.price && !p.priceOnRequest ? ` data-eur="${p.price}"` : ''}>${esc(priceText(p, site, 'EUR'))}</p>

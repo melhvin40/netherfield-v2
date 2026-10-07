@@ -197,7 +197,8 @@ function initMap() {
   map = L.map(mapEl, { scrollWheelZoom: false, center: [lat, lng], zoom: radius > 1000 ? 12 : 15 });
   layers.map = L.tileLayer(site.maps.tiles, { attribution: site.maps.tilesAttribution, maxZoom: 19, subdomains: 'abcd' }).addTo(map);
   layers.satellite = L.tileLayer(site.maps.satellite, { attribution: site.maps.satelliteAttribution, maxZoom: 19 });
-  if (radius) L.circle([lat, lng], { radius, color: '#C7A253', weight: 1.5, fillColor: '#C7A253', fillOpacity: .16 }).addTo(map);
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--c-accent').trim() || '#A88A5C';
+  if (radius) L.circle([lat, lng], { radius, color: accent, weight: 1.5, fillColor: accent, fillOpacity: .16 }).addTo(map);
   else L.marker([lat, lng]).addTo(map);
   map.on('click focus', () => map.scrollWheelZoom.enable());
   map.on('mouseout blur', () => map.scrollWheelZoom.disable());

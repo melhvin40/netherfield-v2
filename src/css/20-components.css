@@ -7,9 +7,9 @@
 .btn-gold:hover{background:var(--gold-hi)}
 .btn-primary{background:var(--navy-950); color:var(--paper)}
 .btn-primary:hover{background:var(--navy-800)}
-.btn-line{border-color:rgba(11,21,48,.38); color:var(--navy-950); background:transparent}
+.btn-line{border-color:rgb(var(--dark-rgb) / .38); color:var(--navy-950); background:transparent}
 .btn-line:hover{background:var(--navy-950); border-color:var(--navy-950); color:var(--paper)}
-.btn-line-light{border-color:rgba(247,243,234,.5); color:var(--paper); background:transparent}
+.btn-line-light{border-color:rgb(var(--paper-rgb) / .5); color:var(--paper); background:transparent}
 .btn-line-light:hover{background:var(--paper); color:var(--navy-950); border-color:var(--paper)}
 .btn-quiet{background:var(--paper-2); color:var(--navy-950)}
 .btn-quiet:hover{background:var(--paper-3)}
@@ -24,8 +24,8 @@
 .link-underline{border:0; background:none; padding:0; font-size:.9rem; color:var(--navy-950); cursor:pointer; text-decoration:underline; text-decoration-color:var(--line-2); text-underline-offset:.25em; transition:text-decoration-color .2s}
 .link-underline:hover{text-decoration-color:currentColor}
 
-.tag{display:inline-flex; align-items:center; gap:.35rem; height:26px; padding:0 .7rem; border-radius:var(--r1); background:rgba(247,243,234,.94); color:var(--navy-950); font:600 .62rem/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px)}
-.tag-quiet{background:rgba(11,21,48,.72); color:var(--paper)}
+.tag{display:inline-flex; align-items:center; gap:.35rem; height:26px; padding:0 .7rem; border-radius:var(--r1); background:rgb(var(--paper-rgb) / .94); color:var(--navy-950); font:600 .62rem/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px)}
+.tag-quiet{background:rgb(var(--dark-rgb) / .72); color:var(--paper)}
 .tag-icon{padding:0 .5rem}
 .tag-icon .i{width:14px; height:14px}
 .tag-gold{background:var(--gold); color:var(--navy-950)}
@@ -35,9 +35,9 @@
 .field > label,.field > .label,legend.label{font:600 .66rem/1.3 var(--sans); letter-spacing:.18em; text-transform:uppercase; color:var(--ink-2); padding:0}
 .input,.select,.textarea{width:100%; min-height:48px; padding:.7rem .95rem; background:var(--white); border:1px solid var(--line-2); border-radius:var(--r1); font-size:.95rem; color:var(--ink); transition:border-color .2s, box-shadow .2s}
 .textarea{min-height:130px; resize:vertical; line-height:1.6}
-.select{appearance:none; -webkit-appearance:none; padding-right:2.4rem; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B1530' stroke-width='1.4' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right .8rem center; background-size:16px}
-.input:focus,.select:focus,.textarea:focus{outline:none; border-color:var(--navy-950); box-shadow:0 0 0 3px rgba(199,162,83,.25)}
-.input::placeholder,.textarea::placeholder{color:#8A8E99}
+.select{appearance:none; -webkit-appearance:none; padding-right:2.4rem; background-image:var(--arrow-svg); background-repeat:no-repeat; background-position:right .8rem center; background-size:16px}
+.input:focus,.select:focus,.textarea:focus{outline:none; border-color:var(--navy-950); box-shadow:0 0 0 3px rgb(var(--accent-rgb) / .25)}
+.input::placeholder,.textarea::placeholder{color:rgb(var(--dark-rgb) / .5)}
 fieldset{border:0; margin:0; padding:0; min-width:0}
 
 .check{display:flex; align-items:flex-start; gap:.7rem; font-size:.92rem; color:var(--ink); cursor:pointer; line-height:1.45}
@@ -67,7 +67,7 @@ input[type="range"]{-webkit-appearance:none; appearance:none; width:100%; height
 input[type="range"]::-webkit-slider-runnable-track{height:2px; background:linear-gradient(to right, var(--navy-950) var(--fill,50%), var(--line-2) var(--fill,50%))}
 input[type="range"]::-moz-range-track{height:2px; background:var(--line-2)}
 input[type="range"]::-moz-range-progress{height:2px; background:var(--navy-950)}
-input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none; width:22px; height:22px; margin-top:-10px; border-radius:50%; background:var(--white); border:1px solid var(--navy-950); box-shadow:0 2px 8px rgba(11,21,48,.18)}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none; width:22px; height:22px; margin-top:-10px; border-radius:50%; background:var(--white); border:1px solid var(--navy-950); box-shadow:0 2px 8px rgb(var(--dark-rgb) / .18)}
 input[type="range"]::-moz-range-thumb{width:20px; height:20px; border-radius:50%; background:var(--white); border:1px solid var(--navy-950)}
 
 /* popover (filter dropdowns, share menu) */
@@ -75,7 +75,7 @@ input[type="range"]::-moz-range-thumb{width:20px; height:20px; border-radius:50%
 .pop-foot{display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-top:1.2rem; padding-top:1rem; border-top:1px solid var(--line)}
 
 /* side sheet / modal */
-.sheet-backdrop{position:fixed; inset:0; z-index:400; background:rgba(11,21,48,.42); opacity:0; transition:opacity .3s var(--ease)}
+.sheet-backdrop{position:fixed; inset:0; z-index:400; background:rgb(var(--dark-rgb) / .42); opacity:0; transition:opacity .3s var(--ease)}
 .sheet-backdrop.is-open{opacity:1}
 .sheet{position:fixed; z-index:410; top:0; right:0; bottom:0; width:min(560px, 100vw); display:flex; flex-direction:column; background:var(--paper); box-shadow:var(--sh-2); transform:translateX(100%); transition:transform .38s var(--ease)}
 .sheet.is-open{transform:none}
@@ -94,5 +94,5 @@ input[type="range"]::-moz-range-thumb{width:20px; height:20px; border-radius:50%
 /* notes and fine print */
 .fine{font-size:.82rem; line-height:1.55; color:var(--ink-3)}
 .note-line{padding-left:1rem; border-left:1px solid var(--gold); font-size:.85rem; color:var(--ink-2); max-width:72ch}
-.is-invalid.input,.is-invalid.select,.is-invalid.textarea{border-color:var(--clay)!important; box-shadow:0 0 0 3px rgba(142,81,57,.15)}
-.check.is-invalid input{border-color:var(--clay)}
+.is-invalid.input,.is-invalid.select,.is-invalid.textarea{border-color:var(--error)!important; box-shadow:0 0 0 3px rgb(var(--error-rgb) / .15)}
+.check.is-invalid input{border-color:var(--error)}

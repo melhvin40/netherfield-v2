@@ -109,3 +109,29 @@ if (site) {
   paintPrefs(site);
   document.addEventListener('nf:prefs-change', () => paintPrefs(site));
 }
+
+/* colour proposals: switch the palette in place and remember it (only while several palettes are offered) */
+const pal = document.querySelector('.pal');
+if (pal) {
+  const root = document.documentElement, buttons = [...pal.querySelectorAll('.pal-b')], name = pal.querySelector('.pal-name');
+  const first = pal.dataset.default;
+  const paint = () => {
+    const cur = root.getAttribute('data-palette') || first;
+    buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.paletteId === cur)));
+    const on = buttons.find(b => b.dataset.paletteId === cur);
+    if (name && on) name.textContent = on.dataset.name;
+  };
+  pal.addEventListener('click', e => {
+    const b = e.target.closest('.pal-b');
+    if (!b) return;
+    const id = b.dataset.paletteId;
+    if (id === first) root.removeAttribute('data-palette'); else root.setAttribute('data-palette', id);
+    try { localStorage.setItem('nf-palette', id); } catch (err) {}
+    const u = new URL(location.href);
+    u.searchParams.set('palette', id);
+    history.replaceState(null, '', u);
+    paint();
+  });
+  paint();
+}
+

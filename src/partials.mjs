@@ -2,6 +2,7 @@
 import { esc, icon } from './lib/util.mjs';
 import { sprite } from './templates/icons.mjs';
 import { FILMS } from './media.mjs';
+import { PALETTES, defaultPalette } from './palettes.mjs';
 
 export const NAV = [
   { id: 'home', href: 'index.html', label: 'Home' },
@@ -11,8 +12,18 @@ export const NAV = [
   { id: 'testimonials', href: 'testimonials.html', label: 'Testimonials' }
 ];
 
-// Runs in <head> before first paint: marks that scripts run (reveal-on-scroll styles depend on it).
-const JS_BOOT = `document.documentElement.className+=' js';`;
+// Runs in <head> before first paint: marks that scripts run (reveal-on-scroll styles depend on it) and,
+// while several colour palettes are on offer, applies the one chosen (?palette=<id> or the last one picked).
+const PALETTE_IDS = PALETTES.map(p => p.id);
+const JS_BOOT = `document.documentElement.className+=' js';` + (PALETTES.length > 1
+  ? `try{var d=document.documentElement,q=new URLSearchParams(location.search).get('palette'),ids=${JSON.stringify(PALETTE_IDS)};if(q&&ids.indexOf(q)>-1)localStorage.setItem('nf-palette',q);var p=localStorage.getItem('nf-palette');if(p&&p!=='${defaultPalette().id}'&&ids.indexOf(p)>-1)d.setAttribute('data-palette',p)}catch(e){}`
+  : '');
+
+// Compare the palettes: a small bar in the corner, only while more than one palette is listed.
+function paletteBar() {
+  if (PALETTES.length < 2) return '';
+  return `<div class="pal" role="group" aria-label="Colour proposals" data-default="${defaultPalette().id}">${PALETTES.map((p, i) => `<button class="pal-b" type="button" data-palette-id="${p.id}" data-name="${esc(p.name)}" aria-pressed="false" title="${esc(p.name)}"><span class="pal-sw" style="--p1:${p.light};--p2:${p.dark};--p3:${p.accent}"></span><span class="pal-k">${String.fromCharCode(65 + i)}</span></button>`).join('')}<span class="pal-name" aria-live="polite"></span></div>`;
+}
 
 export function jsonScript(id, data) {
   return `<script type="application/json" id="${id}">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
@@ -40,7 +51,7 @@ ${site.indexable ? `<link rel="canonical" href="${esc(url)}">` : ''}
 <meta property="og:image" content="${esc(ogImage)}">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0b1530">
+<meta name="theme-color" content="${defaultPalette().dark}">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/albert-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -109,7 +120,8 @@ function footer(site, tax) {
     <a href="admin.html" rel="nofollow">Agency login</a>
   </div>
 </footer>
-<button class="totop" id="totop" type="button" aria-label="Back to top" hidden>${icon('chevron-up', 20)}</button>`;
+<button class="totop" id="totop" type="button" aria-label="Back to top" hidden>${icon('chevron-up', 20)}</button>
+${paletteBar()}`;
 }
 
 export function layout(ctx, page) {
